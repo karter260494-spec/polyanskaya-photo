@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Записаться на фотосессию — Polyanskaya_Photo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Запишитесь на фотосессию к фотографу Polyanskaya_Photo: оставьте заявку, и мы свяжемся с вами для подтверждения.">
+<meta name="theme-color" content="#800020">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" href="../assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/icons/icon-180.png">
+<link rel="stylesheet" href="booking.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="brand">
+    <img src="../assets/icons/icon-192.png" width="44" height="44" alt="" class="logo">
+    <div><b>Polyanskaya_Photo</b><span>Фотограф</span></div>
+  </header>
+
+  <section id="formBox">
+    <h1>Записаться на фотосессию</h1>
+    <p class="lead">Оставьте заявку — фотограф свяжется с вами, чтобы подтвердить дату и обсудить детали.</p>
+    <div id="notice" class="notice" hidden></div>
+    <form id="bf" novalidate autocomplete="on">
+      <div class="field" data-f="name"><label for="name">Ваше имя</label><input id="name" name="name" autocomplete="name" maxlength="80" required><div class="err">Введите имя</div></div>
+      <div class="field" data-f="phone"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="+7 900 000-00-00" required><div class="err">Введите номер телефона, чтобы мы могли связаться с вами</div></div>
+      <div class="field" data-f="type"><label for="type">Вид фотосессии</label><select id="type" name="type" required></select><div class="err">Выберите вид съёмки</div></div>
+      <div class="row">
+        <div class="field" data-f="date"><label for="date">Желаемая дата</label><input id="date" name="date" type="date" required><div class="err">Выберите дату не раньше сегодняшней</div></div>
+        <div class="field" data-f="time"><label for="time">Время</label><input id="time" name="time" type="time"></div>
+      </div>
+      <div class="field"><label for="location">Локация</label><input id="location" name="location" maxlength="160" placeholder="Город, студия или место"></div>
+      <div class="field"><label for="comment">Комментарий</label><textarea id="comment" name="comment" maxlength="300" placeholder="Расскажите о пожеланиях: идея, количество людей, стиль"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Не заполняйте это поле<input id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div id="formErr" class="formerr" role="alert" hidden></div>
+      <button class="btn" id="send" type="submit">Отправить заявку</button>
+    </form>
+  </section>
+
+  <section id="done" class="done" hidden>
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Спасибо!</h1>
+    <p>Ваша заявка отправлена фотографу. В ближайшее время мы свяжемся с вами для подтверждения записи.</p>
+    <a id="tgLink" class="btn ghost" href="#" hidden>Написать фотографу в Telegram</a>
+    <button class="btn ghost" id="again" type="button">Отправить ещё одну заявку</button>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="booking.js"></script>
+</body>
+</html>

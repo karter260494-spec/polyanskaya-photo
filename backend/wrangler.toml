@@ -1,0 +1,18 @@
+# Для деплоя через командную строку (npm i -g wrangler): wrangler deploy
+# Если деплоите через сайт Cloudflare (рекомендуем, без установки программ) — этот файл не нужен, см. docs/TELEGRAM.md
+name = "polyanskaya-booking"
+main = "telegram-worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://ВАШ-ЛОГИН.github.io"
+APP_URL = "https://ВАШ-ЛОГИН.github.io/ИМЯ-РЕПОЗИТОРИЯ/"
+
+[[kv_namespaces]]
+binding = "BOOKINGS"
+id = "ВСТАВЬТЕ-ID-KV-NAMESPACE"
+
+# Секреты НЕ пишите сюда. Задайте их командами:
+#   wrangler secret put BOT_TOKEN
+#   wrangler secret put CHAT_ID
+#   wrangler secret put ADMIN_TOKEN

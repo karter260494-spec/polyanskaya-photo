@@ -1,5 +1,5 @@
 /* Polyanskaya_Photo — офлайн-кэш. Поднимите VERSION при каждом обновлении файлов. */
-const VERSION = "pp-v2";
+const VERSION = "pp-v3";
 const CORE = [
   "./", "index.html", "style.css", "config.js", "manifest.json",
   "js/utils.js", "js/store.js", "js/sync.js", "js/ui.js", "js/charts.js", "js/forms.js", "js/views.js", "js/app.js",

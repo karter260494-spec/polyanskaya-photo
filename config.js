@@ -8,5 +8,5 @@ window.PP_CONFIG = {
   BOOKING_TYPES: ["Love Story", "Семейная", "Портретная", "Индивидуальная", "Свадебная", "Коммерческая", "Мероприятие"],
 
   // Необязательно: ваш Telegram для кнопки «Написать фотографу» на странице записи (без @)
-  CONTACT_TELEGRAM: "polyanskaya_ph"
+  CONTACT_TELEGRAM: "polka977"
 };

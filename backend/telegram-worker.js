@@ -83,12 +83,16 @@ function message(b) {
 
 async function notify(env, b) {
   if (!env.BOT_TOKEN || !env.CHAT_ID) return false;
-  const body = { chat_id: env.CHAT_ID, text: message(b), parse_mode: "HTML", disable_web_page_preview: true };
-  if (env.APP_URL) body.reply_markup = { inline_keyboard: [[{ text: "Открыть приложение", url: env.APP_URL }]] };
-  try {
-    const r = await fetch("https://api.telegram.org/bot" + env.BOT_TOKEN + "/sendMessage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(8000) });
-    return r.ok;
-  } catch (e) { return false; }
+  const ids = String(env.CHAT_ID).split(",").map((s) => s.trim()).filter(Boolean);
+  const results = await Promise.all(ids.map(async (id) => {
+    const body = { chat_id: id, text: message(b), parse_mode: "HTML", disable_web_page_preview: true };
+    if (env.APP_URL) body.reply_markup = { inline_keyboard: [[{ text: "Открыть приложение", url: env.APP_URL }]] };
+    try {
+      const r = await fetch("https://api.telegram.org/bot" + env.BOT_TOKEN + "/sendMessage", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(8000) });
+      return r.ok;
+    } catch (e) { return false; }
+  }));
+  return results.some(Boolean);
 }
 
 /* Сохраняем заявку в KV. Для списка используем metadata (до 1024 байт), чтобы читать заявки одним запросом. */
